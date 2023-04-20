@@ -13,7 +13,7 @@ with open("README.rst", "r") as readme_file:
     readme = readme_file.read()
 
 base_dir = os.path.dirname(__file__)
-src_dir = base_dir
+src_dir = os.path.join(base_dir, "src")
 
 # When executing the setup.py, we need to be able to import ourselves, this
 # means that we need to add the src/ directory to the sys.path.
@@ -33,7 +33,7 @@ setup(
     long_description_content_type="text/markdown",
     url=about['__uri__'],
     packages=find_packages(where="src"),
-    package_dir={"": "src"},
+    package_dir={"":"src"},
     install_requires=about['__requirements__'],
     include_package_data=True,
     package_data=about['__includedatafiles__'],
